@@ -2,10 +2,11 @@
 //Responsible for transfering data from API only (local role)
 //But also stores methods to transfer from RAW data -> desired model
 
-import '../../model/source.dart';
+import 'package:news_app/data/response/source_respone.dart';
+
 
 class ArticleResponse {
-  final Source source;
+  final SourceResponse source;
   final String? author;
   final String? title;
   final String? description;
@@ -23,4 +24,21 @@ class ArticleResponse {
       this.urlToImage,
       this.publishedAt,
       this.content});
+
+  factory ArticleResponse.fromJson(Map<String, dynamic> json) {
+    return ArticleResponse(
+      source: SourceResponse.fromJson(
+        json['sourse'] as Map<String, dynamic>,
+      ),
+      author: json['author'] as String?,
+      title: json['title'] as String?,
+      description: json['description'] as String?,
+      url: json['url'] as String?,
+      urlToImage: json['urlToImage'] as String?,
+      publishedAt: json['publishedAt'] == null
+          ? null
+          : DateTime.parse(json['publishedAt'] as String),
+      content: json['content'] as String?,
+    );
+  }
 }
