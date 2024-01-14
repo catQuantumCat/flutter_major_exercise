@@ -29,7 +29,7 @@ class ArticleResponse {
   factory ArticleResponse.fromJson(Map<String, dynamic> json) {
     return ArticleResponse(
       source: SourceResponse.fromJson(
-        json['sourse'] as Map<String, dynamic>,
+        json['source'] as Map<String, dynamic>,
       ),
       author: json['author'] as String?,
       title: json['title'] as String?,
