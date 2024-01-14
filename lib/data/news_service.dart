@@ -10,9 +10,9 @@ class NewsService {
   final client = Client();
 
   //get response from server after "GET"
-  Future<List<ArticleResponse>> getArticles() async {
+  Future<List<ArticleResponse>> getArticles(String country) async {
     final response = await client.get(Uri.parse(
-        'https://newsapi.org/v2/top-headlines?country=us&apiKey=${Constants.apiKey}'));
+        'https://newsapi.org/v2/top-headlines?country=$country&apiKey=${Constants.apiKey}'));
 
     //check if status code in range [200, 299]
     if (response.statusCode < 200 || response.statusCode > 299) {
