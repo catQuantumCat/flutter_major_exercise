@@ -1,0 +1,29 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+part of 'article_screen_bloc.dart';
+
+//all of possible stages of article list
+class ArticleScreenState {
+  final bool isLoading;
+  final String error;
+  final List<Article> articles;
+
+  //constructor of state
+  //with default value
+  ArticleScreenState({
+    this.isLoading = false,
+    this.error = '',
+    this.articles = const <Article>[],
+  });
+
+  ArticleScreenState copyWith({
+    bool? isLoading,
+    String? error,
+    List<Article>? articles,
+  }) {
+    return ArticleScreenState(
+      isLoading: isLoading ?? this.isLoading,
+      error: error ?? this.error,
+      articles: articles ?? this.articles,
+    );
+  }
+}
