@@ -25,6 +25,7 @@ class ArticleResponse {
       this.publishedAt,
       this.content});
 
+  //method to pass JSON->model
   factory ArticleResponse.fromJson(Map<String, dynamic> json) {
     return ArticleResponse(
       source: SourceResponse.fromJson(
