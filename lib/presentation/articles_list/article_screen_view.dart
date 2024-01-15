@@ -23,7 +23,7 @@ class ArticleScreenView extends StatelessWidget {
                   initialSelection: ctx.read<ArticleScreenBloc>().state.country,
                   onSelected: (value) {
                     ctx
-                        .watch<ArticleScreenBloc>()
+                        .read<ArticleScreenBloc>()
                         .add(GetData(country: value!));
                   },
                   dropdownMenuEntries: listOfCountries.entries
