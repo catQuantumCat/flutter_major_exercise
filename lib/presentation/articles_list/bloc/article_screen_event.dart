@@ -3,7 +3,8 @@ part of 'article_screen_bloc.dart';
 abstract class ArticleScreenEvent {}
 
 class GetData extends ArticleScreenEvent {
-  GetData();
+  final String country;
+  GetData({this.country = 'us'});
 }
 
 class RefreshData extends ArticleScreenEvent {

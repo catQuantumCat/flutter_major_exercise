@@ -17,22 +17,23 @@ class ArticleScreenBloc extends Bloc<ArticleScreenEvent, ArticleScreenState> {
   }
 
   FutureOr<void> _onTapOneArticle(event, emit) {
-    log(event.selectedArtcle.toString());
     emit(DetailArticleState(
         selectedArtcle: event.selectedArtcle,
         isLoading: state.isLoading,
         articles: state.articles,
-        error: state.error));
+        error: state.error,
+        country: state.country));
   }
 
   final newsRepo = NewsRepository();
 
-  Future<void> _onGetData(
+  FutureOr<void> _onGetData(
       GetData event, Emitter<ArticleScreenState> emit) async {
     try {
       emit(state.copyWith(isLoading: true));
-      final article = await newsRepo.getArticles();
-      emit(state.copyWith(isLoading: false, articles: article));
+      final article = await newsRepo.getArticles(country: event.country);
+      emit(state.copyWith(
+          isLoading: false, articles: article, country: event.country));
     } catch (e) {
       emit(state.copyWith(isLoading: false, error: e.toString()));
     }
