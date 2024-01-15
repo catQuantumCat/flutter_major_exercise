@@ -27,3 +27,13 @@ class ArticleScreenState {
     );
   }
 }
+
+class DetailArticleState extends ArticleScreenState {
+  final Article selectedArtcle;
+
+  DetailArticleState(
+      {super.isLoading,
+      super.error,
+      super.articles,
+      required this.selectedArtcle});
+}

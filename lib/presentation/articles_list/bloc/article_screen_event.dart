@@ -9,3 +9,8 @@ class GetData extends ArticleScreenEvent {
 class RefreshData extends ArticleScreenEvent {
   RefreshData();
 }
+
+class TapOneArticle extends ArticleScreenEvent {
+  final Article selectedArtcle;
+  TapOneArticle(this.selectedArtcle);
+}

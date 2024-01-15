@@ -12,18 +12,28 @@ class ArticleScreenBloc extends Bloc<ArticleScreenEvent, ArticleScreenState> {
     on<GetData>(_onGetData);
 
     on<RefreshData>((event, emit) {});
+    on<TapOneArticle>(_onTapOneArticle);
     add(GetData());
   }
+
+  FutureOr<void> _onTapOneArticle(event, emit) {
+    log(event.selectedArtcle.toString());
+    emit(DetailArticleState(
+        selectedArtcle: event.selectedArtcle,
+        isLoading: state.isLoading,
+        articles: state.articles,
+        error: state.error));
+  }
+
   final newsRepo = NewsRepository();
 
-  FutureOr<void> _onGetData(
+  Future<void> _onGetData(
       GetData event, Emitter<ArticleScreenState> emit) async {
     try {
       emit(state.copyWith(isLoading: true));
       final article = await newsRepo.getArticles();
       emit(state.copyWith(isLoading: false, articles: article));
     } catch (e) {
-      log(e.toString());
       emit(state.copyWith(isLoading: false, error: e.toString()));
     }
   }
