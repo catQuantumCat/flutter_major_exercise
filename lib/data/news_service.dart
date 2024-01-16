@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:news_app/data/response/article_respone.dart';
+import 'package:news_app/model/article.dart';
 import '../constants/constants.dart';
 
 class NewsService {
@@ -29,6 +30,22 @@ class NewsService {
     return rawArticleData
         .map((oneArticle) =>
             ArticleResponse.fromJson(oneArticle as Map<String, dynamic>))
+        .toList();
+  }
+
+  Future<List<ArticleResponse>> searchArticle(String query) async {
+    final response = await client.get(Uri.parse(
+        "https://newsapi.org/v2/everything?q=$query&sortBy=popularity&apiKey=dc5e9aa3dda84ebabf439620e94ca31d"));
+
+    if (response.statusCode < 200 || response.statusCode > 299) {
+      throw Exception("API error - search");
+    }
+
+    final decodedSearchedData = jsonDecode(response.body);
+    final rawSearchedAricle = decodedSearchedData['articles'] as List;
+
+    return rawSearchedAricle
+        .map((e) => ArticleResponse.fromJson(e as Map<String, dynamic>))
         .toList();
   }
 }

@@ -65,6 +65,9 @@ class ListWidget extends StatelessWidget {
                                   color: Colors.white,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold),
+                              maxLines: 2,
+                              softWrap: true,
+                              overflow: TextOverflow.ellipsis,
                             ),
                             Text(
                               state.articles[index].description != null
