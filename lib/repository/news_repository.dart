@@ -10,4 +10,10 @@ class NewsRepository {
 
     return article.map(toArticle).toList();
   }
+
+  Future<List<Article>> searchArticles({required String query}) async {
+    final searchedAricles = await newsService.searchArticle(query);
+
+    return searchedAricles.map(toArticle).toList();
+  }
 }
