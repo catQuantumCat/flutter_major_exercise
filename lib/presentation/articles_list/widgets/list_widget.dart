@@ -11,7 +11,7 @@ class ListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: BlocConsumer<ArticleScreenBloc, ArticleScreenState>(
-        listener: (contex, state) {
+        listener: (context, state) {
           if (state is DetailArticleState) {
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (ctx) =>

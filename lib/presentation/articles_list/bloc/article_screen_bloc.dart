@@ -13,7 +13,7 @@ class ArticleScreenBloc extends Bloc<ArticleScreenEvent, ArticleScreenState> {
     on<RefreshData>((event, emit) {});
     on<TapOneArticle>(_onTapOneArticle);
     add(GetData());
-  }
+}
 
   FutureOr<void> _onTapOneArticle(event, emit) {
     emit(DetailArticleState(

@@ -4,6 +4,7 @@ import 'package:news_app/presentation/search_article/bloc/search_article_bloc.da
 
 class SearchBox extends StatelessWidget {
   const SearchBox({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +13,7 @@ class SearchBox extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(vertical: 20),
           hintText: "Search"),
       onChanged: (text) {
+        if (!context.mounted) return;
         context.read<SearchArticleBloc>().add(TypeInQuery(text));
       },
     );

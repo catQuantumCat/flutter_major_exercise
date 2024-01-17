@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:news_app/model/article.dart';
 import 'package:news_app/repository/news_repository.dart';
@@ -10,8 +9,18 @@ part 'search_article_state.dart';
 
 class SearchArticleBloc extends Bloc<SearchArticleEvent, SearchArticleState> {
   final newsRepo = NewsRepository();
-  SearchArticleBloc() : super(const SearchArticleState()) {
+  SearchArticleBloc() : super(SearchArticleState()) {
     on<TypeInQuery>(_typeInQuery);
+    on<TapOneResult>(_tapOneResult);
+  }
+
+  FutureOr<void> _tapOneResult(event, emit) {
+    emit(ReadOneResultState(
+        article: event.article,
+        isLoading: state.isLoading,
+        articles: state.articles,
+        error: state.error,
+        query: state.query));
   }
 
   FutureOr<void> _typeInQuery(

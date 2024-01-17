@@ -1,16 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+
 part of 'search_article_bloc.dart';
 
-class SearchArticleState extends Equatable {
+class SearchArticleState {
   final List<Article> articles;
   final bool isLoading;
   final String error;
   final String query;
 
-  @override
-  List<Object> get props => [articles, isLoading, error, query];
-
-  const SearchArticleState(
+  SearchArticleState(
       {this.articles = const <Article>[],
       this.isLoading = false,
       this.error = '',
@@ -29,4 +27,15 @@ class SearchArticleState extends Equatable {
       query: query ?? this.query,
     );
   }
+}
+
+class ReadOneResultState extends SearchArticleState {
+  final Article article;
+
+  ReadOneResultState(
+      {super.articles,
+      super.isLoading,
+      super.error,
+      super.query,
+      required this.article});
 }

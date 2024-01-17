@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/constants/constants.dart';
+import 'package:news_app/presentation/detail_article/detail_article_screen.dart';
 import 'package:news_app/presentation/search_article/bloc/search_article_bloc.dart';
 
 class SearchResults extends StatelessWidget {
@@ -8,7 +11,15 @@ class SearchResults extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SearchArticleBloc, SearchArticleState>(
+    return BlocConsumer<SearchArticleBloc, SearchArticleState>(
+      listener: (context, state) {
+          log("one");
+        if (state is ReadOneResultState) {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  DetailArticleScreen(article: state.article)));
+        }
+      },
       builder: (context, state) {
         if (state.error != '') {
           return Center(
@@ -32,11 +43,16 @@ class SearchResults extends StatelessWidget {
 
         return Expanded(
           child: ListView.separated(
-              itemBuilder: (contex, index) {
+              itemBuilder: (context, index) {
                 return Card(
                   clipBehavior: Clip.hardEdge,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context
+                          .read<SearchArticleBloc>()
+                          .add(TapOneResult(state.articles[index]));
+                      log(state.articles[index].title!);
+                    },
                     child: ListTile(
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 8),

@@ -9,3 +9,8 @@ class TypeInQuery extends SearchArticleEvent {
     this.query,
   );
 }
+
+class TapOneResult extends SearchArticleEvent {
+  final Article article;
+  TapOneResult(this.article);
+}
