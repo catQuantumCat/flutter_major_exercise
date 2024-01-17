@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/constants/constants.dart';
@@ -13,7 +11,6 @@ class SearchResults extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SearchArticleBloc, SearchArticleState>(
       listener: (context, state) {
-          log("one");
         if (state is ReadOneResultState) {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) =>
@@ -51,7 +48,6 @@ class SearchResults extends StatelessWidget {
                       context
                           .read<SearchArticleBloc>()
                           .add(TapOneResult(state.articles[index]));
-                      log(state.articles[index].title!);
                     },
                     child: ListTile(
                       contentPadding: const EdgeInsets.symmetric(

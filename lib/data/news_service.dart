@@ -1,7 +1,6 @@
 //getting data from API, communicate w/ server
 
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:http/http.dart';
 import 'package:news_app/data/response/article_respone.dart';

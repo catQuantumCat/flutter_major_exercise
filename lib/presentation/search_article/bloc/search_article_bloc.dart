@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:news_app/model/article.dart';
 import 'package:news_app/repository/news_repository.dart';
-import 'package:equatable/equatable.dart';
 
 part 'search_article_event.dart';
 part 'search_article_state.dart';
