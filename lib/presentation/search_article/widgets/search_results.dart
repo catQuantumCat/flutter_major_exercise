@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/constants/constants.dart';
 import 'package:news_app/presentation/search_article/bloc/search_article_bloc.dart';
 
 class SearchResults extends StatelessWidget {
@@ -29,16 +30,51 @@ class SearchResults extends StatelessWidget {
           );
         }
 
-        return ListView.separated(
-            itemBuilder: (contex, index) {
-              return InkWell(
-                child: Text(state.articles[index].title != null
-                    ? state.articles[index].title!
-                    : "Sample title"),
-              );
-            },
-            separatorBuilder: (contex, index) => const SizedBox(height: 8),
-            itemCount: state.articles.length);
+        return Expanded(
+          child: ListView.separated(
+              itemBuilder: (contex, index) {
+                return Card(
+                  clipBehavior: Clip.hardEdge,
+                  child: InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 8),
+                      leading: Text(
+                        (index + 1).toString(),
+                        style: const TextStyle(fontSize: 24),
+                      ),
+                      title: Text(
+                        state.articles[index].title != null
+                            ? state.articles[index].title!
+                            : Constants.sampleLongText,
+                        maxLines: 1,
+                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            fontSize: 28, fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            state.articles[index].author != null
+                                ? state.articles[index].author!
+                                : "Annonymous",
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+              separatorBuilder: (contex, index) => const SizedBox(height: 12),
+              itemCount: state.articles.length),
+        );
       },
     );
   }
