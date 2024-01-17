@@ -35,7 +35,7 @@ class NewsService {
 
   Future<List<ArticleResponse>> searchArticle(String query) async {
     final response = await client.get(Uri.parse(
-        "https://newsapi.org/v2/everything?q=$query&sortBy=popularity&apiKey=dc5e9aa3dda84ebabf439620e94ca31d"));
+        "https://newsapi.org/v2/everything?q=$query&sortBy=popularity&apiKey=${Constants.apiKey}"));
 
     if (response.statusCode != 200) {
       throw Exception(response.body);
