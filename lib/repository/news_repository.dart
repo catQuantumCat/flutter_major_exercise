@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import '../data/mapper/article_mapper.dart';
 import '../data/news_service.dart';
 import '../model/article.dart';
@@ -12,8 +14,8 @@ class NewsRepository {
   }
 
   Future<List<Article>> searchArticles({required String query}) async {
+    
     final searchedAricles = await newsService.searchArticle(query);
-
     return searchedAricles.map(toArticle).toList();
   }
 }

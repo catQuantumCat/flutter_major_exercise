@@ -1,13 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'search_article_bloc.dart';
 
-class SearchArticleState {
+class SearchArticleState extends Equatable {
   final List<Article> articles;
   final bool isLoading;
   final String error;
   final String query;
 
-  SearchArticleState(
+  @override
+  List<Object> get props => [articles, isLoading, error, query];
+
+  const SearchArticleState(
       {this.articles = const <Article>[],
       this.isLoading = false,
       this.error = '',

@@ -1,6 +1,7 @@
 //getting data from API, communicate w/ server
 
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart';
 import 'package:news_app/data/response/article_respone.dart';
@@ -37,13 +38,12 @@ class NewsService {
     final response = await client.get(Uri.parse(
         "https://newsapi.org/v2/everything?q=$query&sortBy=popularity&apiKey=dc5e9aa3dda84ebabf439620e94ca31d"));
 
-    if (response.statusCode < 200 || response.statusCode > 299) {
-      throw Exception("API error - search");
+    if (response.statusCode != 200) {
+      throw Exception("API error");
     }
-
     final decodedSearchedData = jsonDecode(response.body);
+    log(decodedSearchedData.toString());
     final rawSearchedAricle = decodedSearchedData['articles'] as List;
-
     return rawSearchedAricle
         .map((e) => ArticleResponse.fromJson(e as Map<String, dynamic>))
         .toList();
