@@ -1,9 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/presentation/search_article/bloc/search_article_bloc.dart';
-import 'package:news_app/presentation/search_article/widgets/search_results.dart';
+import 'bloc/search_article_bloc.dart';
+import 'widgets/search_results.dart';
 
 class SearchArticleView extends StatelessWidget {
   const SearchArticleView({super.key});

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:news_app/model/article.dart';
 import 'package:news_app/repository/news_repository.dart';

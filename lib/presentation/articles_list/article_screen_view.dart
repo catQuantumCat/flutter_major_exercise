@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:news_app/constants/list_of_countries.dart';
-import 'package:news_app/presentation/articles_list/bloc/article_screen_bloc.dart';
-import 'package:news_app/presentation/articles_list/widgets/list_widget.dart';
+import '../../constants/list_of_countries.dart';
+import 'bloc/article_screen_bloc.dart';
+import 'widgets/list_widget.dart';
+import '../search_article/search_article.dart';
 
 class ArticleScreenView extends StatelessWidget {
   const ArticleScreenView({super.key});
@@ -11,6 +12,12 @@ class ArticleScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (ctx) => const SearchArticle())),
+              icon: const Icon(Icons.search))
+        ],
         title: const Text("Sample title"),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,

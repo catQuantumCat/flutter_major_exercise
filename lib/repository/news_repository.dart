@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import '../data/mapper/article_mapper.dart';
 import '../data/news_service.dart';
 import '../model/article.dart';

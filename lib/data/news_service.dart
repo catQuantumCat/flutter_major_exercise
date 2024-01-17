@@ -5,7 +5,6 @@ import 'dart:developer';
 
 import 'package:http/http.dart';
 import 'package:news_app/data/response/article_respone.dart';
-import 'package:news_app/model/article.dart';
 import '../constants/constants.dart';
 
 class NewsService {
@@ -18,7 +17,7 @@ class NewsService {
 
     //check if status code in range [200, 299]
     if (response.statusCode < 200 || response.statusCode > 299) {
-      throw Exception("API error");
+      throw Exception(response.body);
     }
 
     //decode JSON
@@ -39,7 +38,7 @@ class NewsService {
         "https://newsapi.org/v2/everything?q=$query&sortBy=popularity&apiKey=dc5e9aa3dda84ebabf439620e94ca31d"));
 
     if (response.statusCode != 200) {
-      throw Exception("API error");
+      throw Exception(response.body);
     }
     final decodedSearchedData = jsonDecode(response.body);
     log(decodedSearchedData.toString());
