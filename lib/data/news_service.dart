@@ -35,13 +35,12 @@ class NewsService {
 
   Future<List<ArticleResponse>> searchArticle(String query) async {
     final response = await client.get(Uri.parse(
-        "https://newsapi.org/v2/everything?q=$query&sortBy=popularity&apiKey=${Constants.apiKey}"));
+        "https://newsapi.org/v2/everything?q=$query&searchIn=title&&pageSize=10sortBy=popularity&apiKey=${Constants.apiKey}"));
 
     if (response.statusCode != 200) {
       throw Exception(response.body);
     }
     final decodedSearchedData = jsonDecode(response.body);
-    log(decodedSearchedData.toString());
     final rawSearchedAricle = decodedSearchedData['articles'] as List;
     return rawSearchedAricle
         .map((e) => ArticleResponse.fromJson(e as Map<String, dynamic>))

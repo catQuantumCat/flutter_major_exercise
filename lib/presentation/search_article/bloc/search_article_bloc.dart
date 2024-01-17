@@ -23,7 +23,6 @@ class SearchArticleBloc extends Bloc<SearchArticleEvent, SearchArticleState> {
     try {
       emit(state.copyWith(isLoading: true));
       final searchedArticle = await newsRepo.searchArticles(query: event.query);
-      log(event.query);
       emit(state.copyWith(
           isLoading: false, articles: searchedArticle, query: event.query));
     } catch (error) {

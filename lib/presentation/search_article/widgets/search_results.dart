@@ -15,13 +15,13 @@ class SearchResults extends StatelessWidget {
             child: Text('Error: ${state.error}'),
           );
         }
+        if (state.isLoading == true) {
+          return const Center(child: CircularProgressIndicator());
+        }
         if (state.query == '') {
           return const Center(
             child: Text("Type something in the search box"),
           );
-        }
-        if (state.isLoading == true) {
-          return const Center(child: CircularProgressIndicator());
         }
 
         if (state.articles.isEmpty == true) {
@@ -48,11 +48,11 @@ class SearchResults extends StatelessWidget {
                         state.articles[index].title != null
                             ? state.articles[index].title!
                             : Constants.sampleLongText,
-                        maxLines: 1,
+                        maxLines: 2,
                         softWrap: true,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.bold),
+                            fontSize: 24, fontWeight: FontWeight.bold),
                       ),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
