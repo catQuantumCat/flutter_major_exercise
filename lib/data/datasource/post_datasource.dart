@@ -13,7 +13,12 @@ class PostDatasource {
     log(response.toString());
 
     return (response.data as List<dynamic>)
-        .map((onePost) => PostModel.fromJson(onePost as Map<String, dynamic >))
+        .map((onePost) => PostModel.fromJson(onePost as Map<String, dynamic>))
         .toList();
+  }
+
+  Future<void> createPost(PostModel post) async {
+    final res = await dio.post('/posts', data: post.toJson());
+    log(res.toString());
   }
 }
