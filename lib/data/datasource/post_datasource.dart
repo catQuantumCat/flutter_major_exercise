@@ -3,12 +3,17 @@ import 'dart:developer';
 
 import 'package:sample_login/constants/api_const.dart';
 import 'package:dio/dio.dart';
+import 'package:sample_login/data/models/post_model.dart';
 
 class PostDatasource {
   final dio = Dio(BaseOptions(baseUrl: ApiConst.baseUrl));
 
-  Future<void> getPost() async {
+  Future<List<PostModel>> getPost() async {
     final response = await dio.get('/posts');
-    // log(response.toString());
+    log(response.toString());
+
+    return (response.data as List<dynamic>)
+        .map((onePost) => PostModel.fromJson(onePost as Map<String, dynamic >))
+        .toList();
   }
 }
