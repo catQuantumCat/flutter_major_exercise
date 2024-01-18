@@ -21,4 +21,9 @@ class PostDatasource {
     final res = await dio.post('/posts', data: post.toJson());
     log(res.toString());
   }
+
+  Future<void> deletePost(PostModel post) async {
+    final res = await dio.delete('/posts/${post.id}');
+    log(res.toString());
+  }
 }

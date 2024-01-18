@@ -11,4 +11,8 @@ class PostRepository {
   Future<void> createPost(PostModel post) {
     return _datasource.createPost(post);
   }
+
+  Future<void> deletePost(PostModel post) {
+    return _datasource.deletePost(post);
+  }
 }

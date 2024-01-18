@@ -34,19 +34,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   final repo = PostRepository();
-  final onePost = PostModel(
-    id: 4,
-    title: "Hello, API!",
-    content: 'sample content',
-    tags: ['tech'],
-  );
-
-  @override
-  void initState() {
-    repo.createPost(onePost);
-    super.initState();
-  }
-
+  
   void _incrementCounter() {
     setState(() {
       _counter++;
