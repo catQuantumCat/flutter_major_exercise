@@ -14,6 +14,7 @@ class PostListView extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         return ListView.separated(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             itemBuilder: (ctx, index) => SinglePost(
                   title: state.posts[index].title,
                   content: state.posts[index].content,
