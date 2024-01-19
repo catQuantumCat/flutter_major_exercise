@@ -4,7 +4,7 @@ import 'package:sample_login/data/models/post_model.dart';
 class PostRepository {
   final _datasource = PostDatasource();
 
-  Future<List<PostModel>> getPost() {
+  Future<List<PostModel>> getPost() {    
     return _datasource.getPost();
   }
 

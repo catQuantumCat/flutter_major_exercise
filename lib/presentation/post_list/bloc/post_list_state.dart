@@ -8,7 +8,7 @@ class PostListState {
   PostListState({
     this.isLoading = false,
     this.error = '',
-    this.posts = const [],
+    this.posts = const <PostModel>[],
   });
 
   PostListState copyWith({

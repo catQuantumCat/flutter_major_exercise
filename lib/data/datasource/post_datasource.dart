@@ -10,7 +10,6 @@ class PostDatasource {
 
   Future<List<PostModel>> getPost() async {
     final response = await dio.get('/posts');
-    log(response.toString());
 
     return (response.data as List<dynamic>)
         .map((onePost) => PostModel.fromJson(onePost as Map<String, dynamic>))

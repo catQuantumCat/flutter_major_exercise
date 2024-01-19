@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 
@@ -18,7 +17,6 @@ class PostListBloc extends Bloc<PostListEvent, PostListState> {
       GetPostData event, Emitter<PostListState> emit) async {
     emit(state.copyWith(isLoading: true));
     final listOfPost = await repo.getPost();
-    log(listOfPost.toString());
     emit(state.copyWith(isLoading: false, posts: listOfPost));
   }
 }

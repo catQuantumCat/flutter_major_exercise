@@ -17,12 +17,13 @@ class PostModel {
   // JSON -> global model
   //receive data
   factory PostModel.fromJson(Map<String, dynamic> json) {
-    return PostModel(
+    final PostModel model = PostModel(
       id: json['id'] as int,
       title: json['title'] as String,
-      tags: json['tags'] as List<String>,
+      tags: json['tags'].cast<String>(),
       content: json['content'] as String,
     );
+    return model;
   }
 
   //model -> JSON
@@ -40,20 +41,20 @@ class PostModel {
 
   @override
   String toString() {
-    return 'PostModel(id: $id, title: $title, tags: $tags, tags: $content)';
+    return 'PostModel(id: $id, title: $title, content: $content, tags: $tags)';
   }
 
   PostModel copyWith({
     int? id,
     String? title,
-    List<String>? tags,
     String? content,
+    List<String>? tags,
   }) {
     return PostModel(
       id: id ?? this.id,
       title: title ?? this.title,
-      tags: tags ?? this.tags,
       content: content ?? this.content,
+      tags: tags ?? this.tags,
     );
   }
 
