@@ -1,7 +1,6 @@
 part of 'post_list_bloc.dart';
 
-@immutable
-sealed class PostListEvent {}
+abstract class PostListEvent {}
 
 class GetPostData extends PostListEvent {
   GetPostData();
