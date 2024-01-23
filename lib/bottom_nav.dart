@@ -16,13 +16,14 @@ class _BottomNavState extends State<BottomNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListOfScreen[currentScreen],
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.post_add), label: "Posts"),
-          BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: "News"),
+      bottomNavigationBar: NavigationBar(
+        destinations: [
+          NavigationDestination(icon: Icon(Icons.post_add), label: "Posts"),
+          NavigationDestination(icon: Icon(Icons.newspaper), label: "News"),
         ],
-        currentIndex: currentScreen,
-        onTap: (int index) {
+        selectedIndex: currentScreen,
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        onDestinationSelected: (int index) {
           setState(() {
             currentScreen = index;
           });
