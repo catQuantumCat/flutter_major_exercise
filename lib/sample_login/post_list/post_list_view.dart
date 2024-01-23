@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sample_login/sample_login/post_list/bloc/post_list_bloc.dart';
-import 'package:sample_login/sample_login/post_list/widgets/single_post.dart';
+
+import 'bloc/post_list_bloc.dart';
+import 'widgets/single_post.dart';
+
 
 
 class PostListView extends StatelessWidget {
