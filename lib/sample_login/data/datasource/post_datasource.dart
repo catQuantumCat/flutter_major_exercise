@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:sample_login/constants/api_const.dart';
 import 'package:dio/dio.dart';
-import 'package:sample_login/data/models/post_model.dart';
+
+import '../../constants/api_const.dart';
+import '../models/post_model.dart';
+
 
 class PostDatasource {
   final dio = Dio(BaseOptions(baseUrl: ApiConst.baseUrl));

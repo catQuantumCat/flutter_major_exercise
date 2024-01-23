@@ -1,5 +1,5 @@
-import 'package:sample_login/data/datasource/post_datasource.dart';
-import 'package:sample_login/data/models/post_model.dart';
+import '../datasource/post_datasource.dart';
+import '../models/post_model.dart';
 
 class PostRepository {
   final _datasource = PostDatasource();

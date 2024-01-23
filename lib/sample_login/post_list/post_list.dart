@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sample_login/presentation/post_list/post_list_view.dart';
+import 'package:sample_login/sample_login/post_list/post_list_view.dart';
+
 
 import 'bloc/post_list_bloc.dart';
 

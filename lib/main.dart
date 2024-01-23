@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'sample_login/post_list/post_list.dart';
 
-import 'presentation/post_list/post_list.dart';
 
 void main() {
   runApp(const App());

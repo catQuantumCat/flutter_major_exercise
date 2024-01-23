@@ -1,8 +1,7 @@
 
 import 'package:bloc/bloc.dart';
-
-import 'package:sample_login/data/models/post_model.dart';
-import 'package:sample_login/data/repository/post_repository.dart';
+import '../../data/models/post_model.dart';
+import '../../data/repository/post_repository.dart';
 
 part 'post_list_event.dart';
 part 'post_list_state.dart';
