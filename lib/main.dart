@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'news_app/presentation/articles_list/articles_screen.dart';
+import 'sample_login/presentation/post_list/post_list.dart';
 
 
 void main() {
@@ -12,6 +13,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ArticleScreen();
+    // return const ArticleScreen();
+    return const PostList();
   }
 }
