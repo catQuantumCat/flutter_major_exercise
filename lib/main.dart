@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/presentation/articles_list/articles_screen.dart';
+
+import 'news_app/presentation/articles_list/articles_screen.dart';
+
 
 void main() {
   runApp(const MaterialApp(home: App()));

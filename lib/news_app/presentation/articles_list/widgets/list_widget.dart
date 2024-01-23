@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/constants/constants.dart';
-import 'package:news_app/presentation/articles_list/bloc/article_screen_bloc.dart';
-import 'package:news_app/presentation/detail_article/detail_article_screen.dart';
+
+import '../../../constants/constants.dart';
+import '../../detail_article/detail_article_screen.dart';
+import '../bloc/article_screen_bloc.dart';
+
 
 class ListWidget extends StatelessWidget {
   const ListWidget({super.key});

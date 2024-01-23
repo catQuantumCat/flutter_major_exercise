@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/constants/constants.dart';
-import 'package:news_app/presentation/detail_article/detail_article_screen.dart';
-import 'package:news_app/presentation/search_article/bloc/search_article_bloc.dart';
+
+import '../../../constants/constants.dart';
+import '../../detail_article/detail_article_screen.dart';
+import '../bloc/search_article_bloc.dart';
 
 class SearchResults extends StatelessWidget {
   const SearchResults({super.key});

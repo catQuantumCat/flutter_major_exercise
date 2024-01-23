@@ -3,7 +3,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
-import 'package:news_app/data/response/article_respone.dart';
+import 'package:news_app/news_app/data/response/article_respone.dart';
 import '../constants/constants.dart';
 
 class NewsService {

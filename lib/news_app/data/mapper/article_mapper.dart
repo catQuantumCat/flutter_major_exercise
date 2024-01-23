@@ -1,9 +1,9 @@
 //mapping ArticleResponse to Article
 
-import 'package:news_app/data/response/article_respone.dart';
-import 'package:news_app/data/response/source_respone.dart';
-import 'package:news_app/model/article.dart';
-import 'package:news_app/model/source.dart';
+import '../../model/article.dart';
+import '../../model/source.dart';
+import '../response/article_respone.dart';
+import '../response/source_respone.dart';
 
 Article toArticle(ArticleResponse articleResponse) {
   return Article(

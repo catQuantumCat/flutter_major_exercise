@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:news_app/model/article.dart';
-import 'package:news_app/repository/news_repository.dart';
+
+import '../../../model/article.dart';
+import '../../../repository/news_repository.dart';
 
 part 'search_article_event.dart';
 part 'search_article_state.dart';

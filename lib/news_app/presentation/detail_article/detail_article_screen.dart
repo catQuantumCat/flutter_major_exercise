@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/constants/constants.dart';
-import 'package:news_app/model/article.dart';
+
+import '../../constants/constants.dart';
+import '../../model/article.dart';
 
 class DetailArticleScreen extends StatelessWidget {
   const DetailArticleScreen({super.key, required this.article});

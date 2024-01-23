@@ -2,8 +2,10 @@
 //Responsible for transfering data from API only (local role)
 //But also stores methods to transfer from RAW data -> desired model
 
-import 'package:news_app/data/response/source_respone.dart';
 
+
+
+import 'source_respone.dart';
 
 class ArticleResponse {
   final SourceResponse source;
