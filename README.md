@@ -1,4 +1,4 @@
-# news_app
+# sample_login
 
 A new Flutter project.
 
