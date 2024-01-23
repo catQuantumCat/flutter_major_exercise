@@ -4,8 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/post_list_bloc.dart';
 import 'widgets/single_post.dart';
 
-
-
 class PostListView extends StatelessWidget {
   const PostListView({super.key});
 
@@ -17,7 +15,7 @@ class PostListView extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         return ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.all(16),
             itemBuilder: (ctx, index) => SinglePost(
                   title: state.posts[index].title,
                   content: state.posts[index].content,

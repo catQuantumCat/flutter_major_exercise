@@ -18,7 +18,10 @@ class ArticleScreenView extends StatelessWidget {
                   MaterialPageRoute(builder: (ctx) => const SearchArticle())),
               icon: const Icon(Icons.search))
         ],
-        title: const Text("Sample title"),
+        title: const Text(
+          "News",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
