@@ -1,16 +1,28 @@
-# sample_login
+# Flutter News
 
-A new Flutter project.
+A new Flutter project that uses News API's endpoint to provide top 10 news per selected country and shows news based on user searching.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Fetch top 10 news articles for a selected country.
+- Search for news articles based on user input.
+- View information about a news article.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<p align="center">
+    <img src="document/homescreen.png" alt="Home Screen" width="30%" />
+    <img src="document/news_detail.png" alt="News Detail" width="30%" />
+    <img src="document/search.png" alt="Search" width="30%" />
+</p>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+- Register an account and get an API key from [News API](https://newsapi.org/).
+- Clone the repository using the command
+
+```git
+git clone git@github.com:catQuantumCat/flutter_news_app.git
+```
+
+- Create a file named `config.json` following the structure in `config_example.json` and replace the `API_KEY` with your own API key.
